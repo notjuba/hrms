@@ -1,0 +1,223 @@
+/* ========================================
+   DEPARTMENTS PAGE - Modern Technical Style
+   ======================================== */
+
+.departments-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+/* Page Header */
+.page-subtitle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+/* Departments Grid */
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--spacing-6);
+}
+
+/* Department Card */
+.department-card {
+    padding: var(--spacing-6);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.department-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--charcoal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.department-card:hover {
+    border-color: var(--border-dark);
+}
+
+.department-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Department Header */
+.dept-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-4);
+}
+
+.dept-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.dept-actions {
+    display: flex;
+    gap: var(--spacing-1);
+}
+
+.dept-action-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.dept-action-btn:hover {
+    border-color: var(--border-dark);
+    color: var(--text-primary);
+}
+
+.dept-action-btn.danger:hover {
+    border-color: var(--status-error);
+    color: var(--status-error);
+    background: var(--status-error-bg);
+}
+
+/* Department Info */
+.dept-name {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-2);
+    letter-spacing: -0.01em;
+}
+
+.dept-code {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-4);
+}
+
+.dept-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-6);
+    line-height: 1.6;
+}
+
+/* Department Stats */
+.dept-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border-light);
+    border: 1px solid var(--border-primary);
+}
+
+.dept-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+    padding: var(--spacing-4);
+    background: var(--bg-secondary);
+}
+
+.stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Department Manager */
+.dept-manager {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding-top: var(--spacing-4);
+    margin-top: var(--spacing-4);
+    border-top: 1px solid var(--border-light);
+}
+
+.dept-manager-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.dept-manager-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Empty Department Card */
+.department-card.empty {
+    border-style: dashed;
+    background: var(--bg-tertiary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    cursor: pointer;
+}
+
+.department-card.empty:hover {
+    border-color: var(--border-dark);
+    border-style: solid;
+}
+
+.empty-icon {
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-3);
+}
+
+.empty-text {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .departments-grid {
+        grid-template-columns: 1fr;
+    }
+}

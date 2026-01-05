@@ -1,0 +1,231 @@
+/* ========================================
+   ATTENDANCE PAGE - Modern Technical Style
+   ======================================== */
+
+.attendance-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+/* Quick Actions Section */
+.quick-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-6);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+.action-info h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-2);
+    letter-spacing: -0.01em;
+}
+
+.action-info p {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-3);
+}
+
+/* Clock In/Out Buttons */
+.clock-in-btn {
+    background: var(--status-success);
+    color: var(--white);
+    border-color: var(--status-success);
+}
+
+.clock-in-btn:hover:not(:disabled) {
+    background: #059669;
+    border-color: #059669;
+}
+
+.clock-out-btn {
+    background: var(--status-error);
+    color: var(--white);
+    border-color: var(--status-error);
+}
+
+.clock-out-btn:hover:not(:disabled) {
+    background: #DC2626;
+    border-color: #DC2626;
+}
+
+/* Date Picker */
+.date-picker {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.date-icon {
+    position: absolute;
+    left: var(--spacing-4);
+    color: var(--text-muted);
+    z-index: 1;
+    font-size: 1.1rem;
+}
+
+.date-picker .form-input {
+    padding-left: 44px;
+    width: 200px;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+}
+
+/* Attendance Summary */
+.attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+}
+
+.summary-item {
+    padding: var(--spacing-4) var(--spacing-5);
+    background: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.summary-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.summary-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Employee Cell */
+.employee-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+/* Time Display */
+.time-display {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.time-display.empty {
+    color: var(--text-muted);
+}
+
+/* Duration Display */
+.duration-display {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: var(--spacing-1) var(--spacing-2);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+}
+
+/* Status Badge */
+.attendance-status {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-1) var(--spacing-3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid;
+}
+
+.attendance-status.present {
+    background: var(--status-success-bg);
+    color: var(--status-success);
+    border-color: var(--status-success);
+}
+
+.attendance-status.absent {
+    background: var(--status-error-bg);
+    color: var(--status-error);
+    border-color: var(--status-error);
+}
+
+.attendance-status.late {
+    background: var(--status-warning-bg);
+    color: var(--status-warning);
+    border-color: var(--status-warning);
+}
+
+/* Current Time Display */
+.current-time {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-6);
+    background: var(--charcoal);
+    color: var(--white);
+    border: 1px solid var(--charcoal);
+}
+
+.current-time-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+.current-time-value {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .attendance-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .quick-actions {
+        flex-direction: column;
+        gap: var(--spacing-4);
+        text-align: center;
+    }
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .attendance-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .date-picker .form-input {
+        width: 100%;
+    }
+}

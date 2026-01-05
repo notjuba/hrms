@@ -1,0 +1,256 @@
+/* ========================================
+   PAYROLL PAGE - Modern Technical Style
+   ======================================== */
+
+.payroll-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+/* Summary Grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+}
+
+/* Summary Card */
+.summary-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-5);
+    background: var(--bg-secondary);
+    transition: all var(--transition-base);
+}
+
+.summary-card:hover {
+    background: var(--bg-tertiary);
+}
+
+.summary-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.summary-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.summary-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Table Section */
+.table-section {
+    padding: var(--spacing-6);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+.table-section:hover {
+    border-color: var(--border-dark);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.section-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.section-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+/* Employee Cell */
+.employee-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.employee-cell .avatar {
+    flex-shrink: 0;
+}
+
+/* Salary Display */
+.salary-display {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.salary-display.positive {
+    color: var(--status-success);
+}
+
+.salary-display.negative {
+    color: var(--status-error);
+}
+
+/* Net Salary */
+.net-salary {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: var(--spacing-2) var(--spacing-3);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+}
+
+/* Payroll Month Selector */
+.month-selector {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+}
+
+.month-btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.month-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.month-display {
+    padding: var(--spacing-2) var(--spacing-5);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    min-width: 140px;
+    text-align: center;
+}
+
+/* Payroll Status */
+.payroll-status {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-1) var(--spacing-3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid;
+}
+
+.payroll-status.paid {
+    background: var(--status-success-bg);
+    color: var(--status-success);
+    border-color: var(--status-success);
+}
+
+.payroll-status.pending {
+    background: var(--status-warning-bg);
+    color: var(--status-warning);
+    border-color: var(--status-warning);
+}
+
+.payroll-status.processing {
+    background: var(--status-info-bg);
+    color: var(--status-info);
+    border-color: var(--status-info);
+}
+
+/* Totals Row */
+.totals-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+    margin-top: var(--spacing-6);
+}
+
+.totals-item {
+    padding: var(--spacing-4) var(--spacing-5);
+    background: var(--bg-tertiary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.totals-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.totals-value {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .totals-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .totals-row {
+        grid-template-columns: 1fr;
+    }
+}

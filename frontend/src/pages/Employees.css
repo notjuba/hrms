@@ -1,0 +1,272 @@
+/* ========================================
+   EMPLOYEES PAGE - Modern Technical Style
+   ======================================== */
+
+.employees-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    padding-bottom: var(--spacing-6);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+/* Page Title & Stats */
+.page-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.page-stats {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Search Box */
+.page-header .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.page-header .search-icon {
+    position: absolute;
+    left: var(--spacing-4);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.page-header .search-input {
+    width: 320px;
+    padding: var(--spacing-3) var(--spacing-4);
+    padding-left: 44px;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 0;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.page-header .search-input:focus {
+    border-color: var(--border-dark);
+    background: var(--bg-secondary);
+}
+
+.page-header .search-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+}
+
+.filter-tab {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    background: var(--bg-secondary);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.filter-tab.active {
+    color: var(--text-primary);
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+/* Employee Cell */
+.employee-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.employee-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.employee-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.employee-email {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+.employee-date {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.action-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+    border-color: var(--border-dark);
+    color: var(--text-primary);
+}
+
+.action-btn.danger:hover {
+    border-color: var(--status-error);
+    color: var(--status-error);
+    background: var(--status-error-bg);
+}
+
+/* Form Row */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-4);
+}
+
+/* Department Badge */
+.department-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-1) var(--spacing-3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+}
+
+/* Empty State */
+.employees-empty {
+    padding: var(--spacing-16);
+    text-align: center;
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border-primary);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+    border-top: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+}
+
+.pagination-info {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+}
+
+.pagination-btn {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-header .search-input {
+        width: 100%;
+    }
+
+    .filter-tabs {
+        overflow-x: auto;
+    }
+}

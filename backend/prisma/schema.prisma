@@ -1,0 +1,136 @@
+// Prisma Schema for HR ERP System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User account for authentication
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      Role     @default(EMPLOYEE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  employee  Employee?
+}
+
+enum Role {
+  ADMIN
+  HR_MANAGER
+  EMPLOYEE
+}
+
+// Employee profile
+model Employee {
+  id           Int            @id @default(autoincrement())
+  userId       Int            @unique
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  departmentId Int?
+  department   Department?    @relation("DepartmentEmployees", fields: [departmentId], references: [id])
+  firstName    String
+  lastName     String
+  email        String
+  phone        String?
+  position     String
+  hireDate     DateTime
+  address      String?
+  status       EmployeeStatus @default(ACTIVE)
+  avatar       String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  
+  leaveRequests  LeaveRequest[]
+  attendances    Attendance[]
+  salary         Salary?
+  managedDept    Department?    @relation("DepartmentManager")
+}
+
+enum EmployeeStatus {
+  ACTIVE
+  ON_LEAVE
+  TERMINATED
+}
+
+// Department
+model Department {
+  id          Int        @id @default(autoincrement())
+  name        String     @unique
+  description String?
+  managerId   Int?       @unique
+  manager     Employee?  @relation("DepartmentManager", fields: [managerId], references: [id])
+  employees   Employee[] @relation("DepartmentEmployees")
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+// Leave Request
+model LeaveRequest {
+  id          Int         @id @default(autoincrement())
+  employeeId  Int
+  employee    Employee    @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  leaveType   LeaveType
+  startDate   DateTime
+  endDate     DateTime
+  reason      String?
+  status      LeaveStatus @default(PENDING)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+enum LeaveType {
+  ANNUAL
+  SICK
+  PERSONAL
+  MATERNITY
+  PATERNITY
+  UNPAID
+}
+
+enum LeaveStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// Attendance Record
+model Attendance {
+  id         Int              @id @default(autoincrement())
+  employeeId Int
+  employee   Employee         @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  date       DateTime         @db.Date
+  checkIn    DateTime?
+  checkOut   DateTime?
+  status     AttendanceStatus @default(PRESENT)
+  notes      String?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@unique([employeeId, date])
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+  HALF_DAY
+  ON_LEAVE
+}
+
+// Salary Information
+model Salary {
+  id          Int      @id @default(autoincrement())
+  employeeId  Int      @unique
+  employee    Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  baseSalary  Decimal  @db.Decimal(10, 2)
+  bonus       Decimal  @default(0) @db.Decimal(10, 2)
+  deductions  Decimal  @default(0) @db.Decimal(10, 2)
+  currency    String   @default("EUR")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

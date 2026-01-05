@@ -1,0 +1,199 @@
+/* ========================================
+   SIDEBAR - Modern Technical Style
+   ======================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-primary);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    padding: var(--spacing-6);
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+.logo-text {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.logo-accent {
+    color: var(--primary-accent);
+    font-weight: 800;
+}
+
+/* Section Label */
+.nav-section-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    padding: var(--spacing-4) var(--spacing-4) var(--spacing-2);
+    margin-top: var(--spacing-4);
+}
+
+.nav-section-label:first-child {
+    margin-top: 0;
+}
+
+/* Navigation */
+.sidebar-nav {
+    flex: 1;
+    padding: var(--spacing-4);
+    overflow-y: auto;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    background: transparent;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+    border-color: var(--border-light);
+}
+
+.nav-link.active {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    border-color: var(--border-primary);
+    font-weight: 600;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--charcoal);
+}
+
+.nav-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.nav-link.active .nav-icon {
+    opacity: 1;
+}
+
+/* Arrow indicator for active state */
+.nav-link.active::after {
+    content: '→';
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    margin-left: auto;
+    opacity: 0.5;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: var(--spacing-4);
+    border-top: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    background: var(--bg-tertiary);
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    min-width: 0;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.user-name {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-role {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.logout-btn {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+}
+
+.logout-btn:hover {
+    color: var(--status-error);
+    border-color: var(--status-error);
+    background: var(--status-error-bg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
